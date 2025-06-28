@@ -1,31 +1,45 @@
 # Proyecto 8 - Miguel Angel Ruiz Santana : 29no Grupo
-Este proyecto cuenta con dos archivos principales: *main.py* y *data.py*. En data se encuentran los datos que utilizaremos en las pruebas.
+Este proyecto cuenta con cinco archivos: *data.py*, *Helpers.py*, *TestsUrbanRoutes.py*, *UrbanRoutes.py* y *WaitHelpers.py*
 
+#### Data.py:
+    En este archivo se guardan los datos que se ingresaran en las pruebas
+#### Helpers.py:
+    Aqui encontraremos el método que nos ayuda a interceptar el código SMS
+#### TestUrbanRoutes.py
+    El archivo *main.py* prueba varias funciones de la app Urban Routes:  
+    1.- Establecer una ruta  
+    2.- Seleccionar la tarifa "Comfort"  
+    3.- Agregar un número de teléfono  
+    4.- Agregar una nueva tarjeta  
+    5.- Escribir un mensaje al conductor  
+    6.- Agregar mantas y pañuelos  
+    7.- Agregar helados  
+    8.- Pedir taxi  
+    9.- Esperar a la información del conductor
+#### UrbanRoutes.py
+    Este código contiene la clase los localizadores y los métodos para interactuar con la página.
+#### WaitHelpers.py
+    Contiene las esperas explicitas
 
-El archivo *main.py* prueba varias funciones de la app Urban Routes:  
-**1**.- Establecer una ruta  
-**2**.- Seleccionar la tarifa "Comfort"  
-**3**.- Agregar un número de teléfono  
-**4**.- Agregar una nueva tarjeta  
-**5**.- Escribir un mensaje al conductor  
-**6**.- Agregar mantas y pañuelos  
-**7**.- Agregar helados  
-**8**.- Pedir taxi  
-**9**.- Esperar a la información del conductor
+## Estructura y tecnologías
 
-## Estructura
+El código en general se conforma de varias clases en diferentes archivos, todas son llamadas en el archivo
+para las pruebas. 
 
-El código se forma de dos clases UrbanRoutesPage, que tiene como atributos todos los elementos de la página y como métodos las funciones que interactuan con dichos elementos.  
-La segunda clase es TestUrbanRoutes que es donde se encuentra el decorador del servidor para llamarlo en todas la pruebas que hagamos y también aquí se hacen las pruebas.
+Se puede destacar el uso de localizadores que, para su mejor versatilidad se usaron 4 tipos: CLASS_NAME, XPATH, ID y CSS_SELECTOR . Los localizadores son utilizados mediante funciones juntos que también hacen interacciones con ellos, como hacer click e introducir datos.
 
-Los elementos de la página se buscan por sus localizadores, utilicé tres tipos: CSS_SELECT, CLASS_NAME, XPATH y ID.  
-
-También se usaron intervalos de espera como time.sleep o *esperas implícita y explícitas* para hacer las pruebas más suaves y entendibles
+También hacen presencia las esperas explicítas e implícitas que nos ayudan que el sistema haga pausas en busca de elementos en carga, o como el exclusivo caso
+de esperar un contador. Ya para las pruebas tenemos los assert, que son la válidaciones que estamos buscando en cada prueba
 
 ## Correr las pruebas
 
-Para empezar con lo bueno, dirígete a la clase TestUrbanRoutes del archivo 
-*main.py*, ahí puedes correr las pruebas individualmente 
+**Antes de empezar recuerda tener instalados los paquetes *pytest* y *selenium* en tu programa Pycharm***
+
+    Considera que este proyecto fue diseñado solo para el navegador Chrome v138.07... por lo que deberás tenerlo instalado y actualizado
+    a esa versión
+
+Ahora sí con lo bueno, dirígete a la clase TestUrbanRoutes del archivo 
+*TestUrbanRoutes*, ahí puedes correr las pruebas individualmente 
 en el botón "play" del lateral izquierdo de cada 
 prueba, si quieres hacerlo por función inserta 
 breakpoints haciendo click en los números de las líneas de código 
